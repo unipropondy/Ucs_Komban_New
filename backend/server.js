@@ -66,7 +66,10 @@ const app = express();
 const httpServer = http.createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: true,
+    origin: (origin, callback) => {
+      // Allow all origins dynamically
+      callback(null, true);
+    },
     methods: ["GET", "POST"],
     credentials: true,
   },
@@ -237,7 +240,10 @@ setTimeout(pollTables, 5000);
 app.use(compression()); // Compress all responses
 app.use(
   cors({
-    origin: true,
+    origin: (origin, callback) => {
+      // Allow all origins dynamically
+      callback(null, true);
+    },
     credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
   }),
