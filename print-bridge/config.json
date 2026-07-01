@@ -1,0 +1,12 @@
+{
+  "storeId": "STORE_001",
+  "bridgeToken": "unipro-pos-bridge-token-2026",
+  "apiUrl": "https://demo2026pondy-production.up.railway.app",
+  "pollIntervalMs": 2000,
+  "port": 3050,
+  "customerDisplay": {
+    "enabled": true,
+    "fullscreen": true,
+    "autoRecovery": true
+  }
+}
