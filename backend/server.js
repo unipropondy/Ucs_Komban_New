@@ -66,8 +66,9 @@ const app = express();
 const httpServer = http.createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: "*",
+    origin: true,
     methods: ["GET", "POST"],
+    credentials: true,
   },
   perMessageDeflate: true,
 });
@@ -236,8 +237,9 @@ setTimeout(pollTables, 5000);
 app.use(compression()); // Compress all responses
 app.use(
   cors({
-    origin: "*",
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+    origin: true,
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
   }),
 );
 app.use(express.json({ limit: "50mb" }));
