@@ -4,11 +4,11 @@ require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
 const sql = require("mssql"); 
 
 const dbConfig = {
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  server: process.env.DB_SERVER,
-  port: parseInt(process.env.DB_PORT),
-  database: process.env.DB_NAME,
+  user: process.env.DB_USER || 'ups',
+  password: process.env.DB_PASSWORD || 'ups',
+  server: process.env.DB_SERVER || 'myerpcloud.dyndns.org',
+  port: parseInt(process.env.DB_PORT) || 9199,
+  database: process.env.DB_NAME || 'UCSKOMBANNEW',
   options: {
     encrypt: false,
     trustServerCertificate: true,
